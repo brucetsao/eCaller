@@ -1,0 +1,15 @@
+  //會員訂購商品後，寄發信給網站管理員
+  $email= "test@test.com";//收信者，請設定網站管理員信箱
+  $subject= "網站管理員您好，".$webname."有會員訂購商品";//信件標題
+  $subject=mb_encode_mimeheader($subject, 'UTF-8');//指定標題將雙位元文字編碼為單位元字串，避免亂碼
+  //信件內容，請自行修改貴單位的匯款帳戶資料
+  $body="親愛的網站管理員，網站會員".$_SESSION["MM_Username"]."於時間".$_POST['order_date']."，在".$webname."訂購產品，本次的訂單總金額：".$_POST['order_total']." 元，請盡快處理會員的交易訂單!";
+  //郵件檔頭設定
+  $headers = "MIME-Version: 1.0\r\n";//指定MIME(多用途網際網路郵件延伸標準)版本
+  $headers .= "Content-type: text/html; charset=utf-8\r\n";//指定郵件類型為HTML格式
+  $headers .= "From:".mb_encode_mimeheader($webname, 'UTF-8')."<".$servicemail."> \r\n";//指定寄件者資訊
+  $headers .= "Reply-To:".mb_encode_mimeheader($webname, 'UTF-8')."<".$servicemail.">\r\n";//指定信件回覆位置
+  $headers .= "Return-Path:".mb_encode_mimeheader($webname, 'UTF-8')."<".$servicemail.">\r\n";//被退信時送回位置
+  //使用mail函數寄發信件
+  mail ($email,$subject,$body,$headers);
+  //寄發信給網站管理員結束

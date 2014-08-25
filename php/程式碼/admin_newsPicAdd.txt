@@ -1,0 +1,40 @@
+/*	modify */
+if(!empty($HTTP_POST_FILES['newspic_pic'])){//如果你的上傳檔案欄位不是取名為newspic_pic，請將你的欄位名稱取代所有newspic_pic名稱
+	if(is_uploaded_file($HTTP_POST_FILES['newspic_pic']['tmp_name']) && $HTTP_POST_FILES['newspic_pic']['error'] == 0){
+		$_file_ = $HTTP_POST_FILES['newspic_pic'];
+		$errStr = "";
+		$_name_ = $_file_['name'];
+		$_type_ = $_file_['type'];
+		$_tmp_name_ = $_file_['tmp_name'];
+		$_size_ = $_file_['size'];
+        header ('Content-type: text/html; charset=utf-8');//指定編碼
+		if($_size_ > MAX_SIZE && MAX_SIZE > 0){
+			$errStr = "File troppo pesante";
+			echo "<script>javascript:alert(\"超過限制檔案大小\");</script>";//跳出錯誤訊息
+		}
+		$_ext_ = explode(".", $_name_);
+		$_ext_ = strtolower($_ext_[count($_ext_)-1]);
+		if(!in_array($_ext_, $_accepted_extensions_) && count($_accepted_extensions_) > 0){
+			$errStr = "Estensione non valida";
+			echo "<script>javascript:alert(\"請檢查檔案格式\");</script>";//跳出錯誤訊息
+		}
+		if(!is_dir(DESTINATION_FOLDER) && is_writeable(DESTINATION_FOLDER)){
+			$errStr = "Cartella di destinazione non valida";
+			echo "<script>javascript:alert(\"必須指定資料夾目錄\");</script>";//跳出錯誤訊息
+		}
+		if(empty($errStr)){
+			if(@copy($_tmp_name_,DESTINATION_FOLDER . "/" . date("YmdHis.").$_ext_)){ //修改自動重新命名
+				$newPicname=date("YmdHis.").$_ext_;//變數$newname取得新檔案名，供寫入資料庫
+				header("Location: " . no_error);
+			} else {
+				echo "<script>history.back()</script>";//回上一頁
+				exit;                                  //停止後續程式碼的繼續執行
+				//header("Location: " . yes_error);
+			}
+		} else {
+			echo "<script>history.back()</script>";//回上一頁
+		    exit;	                               //停止後續程式碼的繼續執行
+			//header("Location: " . yes_error);
+		}
+	}
+}

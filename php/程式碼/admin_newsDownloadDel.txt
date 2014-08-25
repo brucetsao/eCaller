@@ -1,0 +1,1 @@
+  @unlink('../images/news/'.$_POST["fileDel"]);//刪除之前上傳檔案

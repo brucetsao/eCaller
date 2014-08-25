@@ -1,0 +1,1 @@
+<? $order_total=$order_total+$row_web_orderList['p_price']*$row_web_orderList['odlist_qty']?>

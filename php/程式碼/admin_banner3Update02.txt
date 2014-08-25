@@ -1,0 +1,12 @@
+/*php製作縮圖及預覽圖*/
+  //製作縮圖
+  $src  = "../images/panner/".$newPicname; //自訂變數$src，指定圖檔來源位置以及檔名
+  $newSrc = $src;                          //自訂變數$newSrc，設定後續縮圖儲存位置及檔
+  $whLimit = "555";                        //自訂變數$whLimit，設訂縮圖寬高限制尺
+  imgResize($src,$newSrc,$whLimit);        //將上面3個自訂變數帶入自訂函數imgResize()開始製作縮圖
+  //製作預覽圖
+  $src  = "../images/panner/".$newPicname; //自訂變數$src，指定圖檔來源位置以及檔名
+  $newSrc = "../images/panner/thum/".$newPicname; //自訂變數$newSrc，設定後續縮圖儲存位置及檔名
+  $whLimit = "200";                        //自訂變數$whLimit，設訂縮圖寬高限制尺寸
+  imgResize($src,$newSrc,$whLimit);        //將上面3個自訂變數帶入自訂函數imgResize()開始製作縮圖
+/*php製作縮圖及預覽圖結束*/

@@ -1,0 +1,7 @@
+    //修改如下，解決電子報訂閱區被include()載入引用的錯誤
+    echo("<script language='javascript'>location.href='".$MM_dupKeyRedirect."'</script>");
+
+
+
+   //修改如下，解決電子報訂閱區被include()載入引用的錯誤
+   echo("<script language='javascript'>location.href='".$insertGoTo."'</script>");

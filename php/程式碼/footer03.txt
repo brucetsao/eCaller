@@ -1,0 +1,5 @@
+<?
+$thisYear=date("Y");//自訂變數$thisYear儲存年度資料，供資料集查詢用
+$thisMonth=date("Y-m");//自訂變數$thisMouth儲存月份資料，供資料集查詢用
+$today=date("Y-m-d");//自訂變數$today儲存今天日期，供資料集查詢用
+?>

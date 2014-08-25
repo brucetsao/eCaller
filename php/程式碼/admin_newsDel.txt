@@ -1,0 +1,4 @@
+  //如果news_pic變數定義不是空的，就刪除圖檔
+  if($_GET["news_pic"]!=''){
+  @unlink('../images/news/'.$_GET["news_pic"]);
+  }

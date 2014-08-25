@@ -1,0 +1,38 @@
+<script language="javascript">
+<!--
+function chkUserID(idObj){ 
+	if(idObj.value.length < 4){
+		/*帳號欄位輸入不得少於4個字元，否則顯示提示訊息*/
+		document.getElementById("idErrMsg").innerHTML = "<img src='images/icon-cross.gif' /><font color='red'> 帳號輸入請勿少於4個字元</font>";
+	}else{
+		/*確認無誤，採用GET方式傳遞帳號欄位輸入內容至member_idCheck.php頁面，進行帳號查詢，並傳回結果*/
+		Spry.Utils.loadURL("GET","member_idCheck.php?username=" + idObj.value,false,uidchkRes);
+	}
+}
+function uidchkRes(idreq){ /*下面依據查詢結果，顯示對應訊息*/
+	var IDresult = idreq.xhRequest.responseText;
+	if(IDresult!=0){
+		document.getElementById("idErrMsg").innerHTML = "<img src='images/icon-cross.gif' /><font color='red'> 此帳號已被使用!!</font>";
+	}else{
+		document.getElementById("idErrMsg").innerHTML = "<img src='images/icon-tick.gif' /><font color='green'> 此帳號可註冊使用!</font>";
+	}
+}
+function chkUserMail(mailObj){
+	if(mailObj.value.length < 4){
+		/*email欄位輸入不得少於4個字元，否則顯示提示訊息*/
+		document.getElementById("emailErrMsg").innerHTML = "<img src='images/icon-cross.gif' /><font color='red'> email輸入請勿少於4個字元</font>";
+	}else{
+		/*確認無誤，採用GET方式傳遞email欄位輸入內容至member_emailCheck.php頁面，進行email查詢，並傳回結果*/
+		Spry.Utils.loadURL("GET","member_emailCheck.php?email=" + mailObj.value,false,umailchkRes);
+	}
+}
+function umailchkRes(mailreq){  /*下面依據查詢結果，顯示對應訊息*/
+	var IDresult = mailreq.xhRequest.responseText;
+	if(IDresult!=0){
+		document.getElementById("emailErrMsg").innerHTML = "<img src='images/icon-cross.gif' /><font color='red'> 此email已被使用!!</font>";
+	}else{
+		document.getElementById("emailErrMsg").innerHTML = "<img src='images/icon-tick.gif' /><font color='green'> 此email可註冊使用!</font>";
+	}
+}			
+-->
+</script>

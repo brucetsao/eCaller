@@ -1,0 +1,22 @@
+<?
+  //寄發電子報給指定mail
+  mb_internal_encoding('UTF-8');//指定發信使用UTF-8編碼，防止信件標題亂碼
+  $servicemail="test@test.com";//指定網站管理員服務信箱，請修改為自己的有效mail
+  $webname="HAPPY購物網站";//寫入網站名稱
+  //由web_member資料集，取得訂閱電子報會員之email
+  $email=$row_web_member['email'];
+  //由web_paper資料集取得電子報標題，作為信件標題，如果資料集名稱不同，請自行修改
+  $subject=$row_web_paper['epaper_title'];//信件標題
+  $subject=mb_encode_mimeheader($subject, 'UTF-8');//指定標題將雙位元文字編碼為單位元字串，避免亂碼
+  //由web_paper資料集取得電子報內容，作為信件內容，如果資料集名稱不同，請自行修改
+  $body=$row_web_paper['epaper_content'];
+  //郵件檔頭設定
+  $headers = "MIME-Version: 1.0\r\n";//指定MIME(多用途網際網路郵件延伸標準)版本
+  $headers .= "Content-type: text/html; charset=utf-8\r\n";//指定郵件類型為HTML格式
+  $headers .= "From:".mb_encode_mimeheader($webname, 'UTF-8')."<".$servicemail."> \r\n";//指定寄件者資訊
+  $headers .= "Reply-To:".mb_encode_mimeheader($webname, 'UTF-8')."<".$servicemail.">\r\n";//指定信件回覆位置
+  $headers .= "Return-Path:".mb_encode_mimeheader($webname, 'UTF-8')."<".$servicemail.">\r\n";//被退信時送回位置
+  //使用mail函數寄發信件
+  mail ($email,$subject,$body,$headers);
+  //寄發電子報給指定mail結束
+?>

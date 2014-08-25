@@ -1,0 +1,12 @@
+//全站判斷是否使用產生cookie記錄帳號、密碼用(有使用連線設定檔的頁面)
+if(isset($_POST['uCheck']) and isset($_POST['pCheck'])) {
+	if(isset($_POST['remember'])) {
+		//設定一名稱為rmUsername的cookie，記錄輸入的使用者帳號，保存期限30天
+		setcookie("rmUsername",$_POST['uCheck'],time()+3600*24*30);
+		//設定一名稱為rmPassword的cookie，記錄輸入的使用者密碼，保存期限30天
+		setcookie("rmPassword",$_POST['pCheck'],time()+3600*24*30);
+	}else{
+		setcookie("rmUsername",'', time()); //刪除記錄帳號的Cookie
+		setcookie("rmPassword",'', time()); //刪除記錄密碼的Cookie
+	}
+}

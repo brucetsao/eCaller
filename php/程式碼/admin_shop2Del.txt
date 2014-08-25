@@ -1,0 +1,2 @@
+  @unlink('../images/shop/'.$_GET["p_pic"]);
+  @unlink('../images/shop/thum/'.$_GET["p_pic"]);

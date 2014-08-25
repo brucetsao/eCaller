@@ -1,0 +1,23 @@
+  //完成訂購流程後，寄發確認信給會員
+  mb_internal_encoding('UTF-8');//指定發信使用UTF-8編碼，防止信件標題亂碼
+  $servicemail="test@test.com";//指定網站管理員服務信箱，請修改為自己的有效mail
+  $webname="HAPPY購物網站";//請修改為你的網站名稱
+  $email= $_POST['email'];//自訂變數$email儲存表單隱藏欄位傳送過來的會員email
+  $subject= $_SESSION["MM_Username"]."您好，感謝您於".$webname."訂購商品";//信件標題
+  $subject=mb_encode_mimeheader($subject, 'UTF-8');//指定標題將雙位元文字編碼為單位元字串，避免亂碼
+  //信件內容，請自行修改貴單位的匯款帳戶資料
+  $body="親愛的客戶".$_SESSION["MM_Username"]."非常感謝您於時間".$_POST['order_date']."，在".$webname."訂購產品，本次的訂單總金額：".$_POST['order_total']." 元，我們將盡快處理您的交易訂單!<br />
+本公司匯款帳戶資料如下：<br />
+代表名稱：xxxx有限公司<br />
+銀行代號：011xxxx銀行xxxx分行<br />
+代表帳號：xxxxx<br />
+如果您選擇「ATM轉帳」或「銀行匯款」，付完款後請記得回到網站登入會員後，檢視您的商品訂單記錄，將已付款選項勾選，並留下匯款帳號後5碼，方便我們的人員作確認及處理後續的出貨。同時您也可以隨時登入網站後，查看您的詢價清單記錄及處理進度，謝謝!!如有任何問題歡迎與我們聯絡，謝謝!!any problem，you can touch us，thank you!!";
+  //郵件檔頭設定
+  $headers = "MIME-Version: 1.0\r\n";//指定MIME(多用途網際網路郵件延伸標準)版本
+  $headers .= "Content-type: text/html; charset=utf-8\r\n";//指定郵件類型為HTML格式
+  $headers .= "From:".mb_encode_mimeheader($webname, 'UTF-8')."<".$servicemail."> \r\n";//指定寄件者資訊
+  $headers .= "Reply-To:".mb_encode_mimeheader($webname, 'UTF-8')."<".$servicemail.">\r\n";//指定信件回覆位置
+  $headers .= "Return-Path:".mb_encode_mimeheader($webname, 'UTF-8')."<".$servicemail.">\r\n";//被退信時送回位置
+  //使用mail函數寄發信件
+  mail ($email,$subject,$body,$headers);
+  //完成訂購流程後，寄發確認信給會員結束

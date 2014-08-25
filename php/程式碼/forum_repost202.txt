@@ -1,0 +1,5 @@
+  /* 依據取得的表單forum_id，更新forum資料forum_replies回覆文章欄位，作數值+1的SQL語法*/
+  $updateSQL = "UPDATE forum SET forum_replies=forum_replies+1 WHERE forum_id = ".$_POST['forum_id'];
+  /*執行更新動作*/
+  mysql_select_db($database_conn_web, $conn_web);
+  $Result = mysql_query($updateSQL, $conn_web) or die(mysql_error());

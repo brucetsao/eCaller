@@ -1,0 +1,10 @@
+<?
+if(!isset($_SESSION['view'])){ //先檢查Session變數view是否存在
+	$_SESSION['view'] = 1;  		   //新增Session變數view，值為1
+	$view_time=date("Y-m-d H:i:s");    //變數$viewtime瀏覽時間
+	$view_ip=$_SERVER['REMOTE_ADDR'];  //變數$viewip記錄瀏覽者的IP
+	//指定新增資料至viewcount資料表的SQL指令
+	$insertView="INSERT INTO viewcount (view_time,view_ip) VALUES ('$view_time', '$view_ip')";
+	mysql_query($insertView);//執行SQL指令動作
+}
+?>

@@ -1,0 +1,7 @@
+<? 
+session_start();
+//將session變數cart,取消登記,網頁左方的觀看購物車按鈕會取消顯示
+session_unregister("cart");
+//將session變數order_group,取消登記,下次商品新加入購物車時會再登記，訂單才不會產生錯誤
+session_unregister("order_group");
+?>

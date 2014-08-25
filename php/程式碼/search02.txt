@@ -1,0 +1,12 @@
+<?php 
+     //去除HTML標籤，先找到關鍵字第一次出現位置，並將字元位置儲存在自訂變數$start_place中
+     $start_place=mb_strrpos(strip_tags($row_web_search['p_content']),$_GET['keyword'],"UTF-8");
+     //希望關鍵字出現在商品簡介中央位置，所以起始字元位置-50(因為指定截取100個字元)
+     $start_place=$start_place-50;
+     //去除p_content欄位中，商品介紹文案的HTML及PHP語法標籤後，指定截取出100個字元後，儲存給變數$p_content
+     $p_content=mb_substr(strip_tags($row_web_search['p_content']),$start_place,100,"UTF-8");
+     //使用str_replace函數為搜尋結果中的關鍵字內容，替換文字樣式效果
+     $p_content=str_replace($_GET['keyword'],"<font color='#ff0000' style='background:#ffff00'>".$_GET['keyword']."</font>",$p_content);
+     //輸出最後效果
+     echo $p_content;
+?>....

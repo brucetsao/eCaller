@@ -1,0 +1,1 @@
+	var center = new google.maps.LatLng(23.96612, 120.96626);

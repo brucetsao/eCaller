@@ -1,0 +1,17 @@
+<?
+  //自訂取得隨機密碼函數
+  function getRandNewPassword()
+  {
+    $password_len = 6;//指定隨機密碼字串字數
+    $password = '';
+	//指定隨機密碼字串內容
+    $word = 'abcdefghijkmnpqrstuvwxyzABCDEFGHIJKLMNPQRSTUVWXYZ123456789';
+    $len = strlen($word);
+    for ($i = 0; $i < $password_len; $i++) {
+        $password .= $word[rand() % $len];
+    }
+    return $password;
+  }
+  //變數$password取得新的隨機密碼
+  $password=getRandNewPassword();
+?>

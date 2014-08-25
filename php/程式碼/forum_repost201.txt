@@ -1,0 +1,6 @@
+//自訂變數$re_quote記錄表單傳送過來的re_quote欄位資料
+$re_quote=$_POST["re_quote"];
+//如果未驗證到re_quoteY欄位勾選
+if(empty($_POST["re_quoteY"])){
+	$re_quote=''; //自訂變數$re_quote就設為空值
+	}

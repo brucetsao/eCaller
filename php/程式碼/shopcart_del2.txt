@@ -1,0 +1,4 @@
+  //刪除資料時，增加篩選條件，必須order_sid欄位值也與目前Session變數order_sid值相同
+  $deleteSQL = sprintf("DELETE FROM orderlist WHERE odlist_id=%s && order_sid=%s",
+                       GetSQLValueString($_GET['odlist_id'], "int"),
+                       GetSQLValueString($_SESSION['order_sid'], "text"));

@@ -1,0 +1,22 @@
+<?
+  //將新密碼發信給使用者
+  mb_internal_encoding('UTF-8');//指定發信使用UTF-8編碼，防止信件標題亂碼
+  $servicemail="service@joj.com.tw";//指定網站管理員服務信箱
+  $webname="HAPPY購物網站";//寫入網站名稱
+  $email=$_POST['email'];//上一頁中會員輸入的信箱
+  $subject=$webname."補發會員密碼";//信件標題
+  $subject=mb_encode_mimeheader($subject, 'UTF-8');//指定標題將雙位元文字編碼為單位元字串，避免亂碼
+  //指定信件內容
+  $body="親愛的會員您好，以下是您的新會員密碼，請妥善保存您的資料，謝謝:\n
+         您的新密碼是".$password."\n
+         如有任何問題歡迎與我們聯絡，謝謝!!any problem，you can touch us，thank you!!";
+  //郵件檔頭設定
+  $headers = "MIME-Version: 1.0\r\n";//指定MIME(多用途網際網路郵件延伸標準)版本
+  $headers .= "Content-type: text/html; charset=utf-8\r\n";//指定郵件類型為HTML格式
+  $headers .= "From:".mb_encode_mimeheader($webname, 'UTF-8')."<".$servicemail."> \r\n";//指定寄件者資訊
+  $headers .= "Reply-To:".mb_encode_mimeheader($webname, 'UTF-8')."<".$servicemail.">\r\n";//指定信件回覆位置
+  $headers .= "Return-Path:".mb_encode_mimeheader($webname, 'UTF-8')."<".$servicemail.">\r\n";//被退信時送回位置
+  //使用mail函數寄發信件
+  mail ($email,$subject,$body,$headers);
+  //將新密碼發信給使用者結束
+?>

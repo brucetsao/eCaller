@@ -1,0 +1,7 @@
+  //計算更新的資料筆數
+  $countNum=count($_POST["odlist_id"]);
+  //利用迴圈更新資料
+  for($i=0;$i<$countNum;$i++){
+	//自訂變數接收上一頁傳來的欄位之陣列值
+    $odlist_id=$_POST["odlist_id"][$i];
+    $odlist_qty=$_POST["odlist_qty"][$i];

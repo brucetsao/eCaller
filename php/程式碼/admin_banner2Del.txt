@@ -1,0 +1,1 @@
+  @unlink('../images/panner/'.$_GET["banner_pic"]);//§R°£¹ÏÀÉ

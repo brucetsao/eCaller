@@ -1,0 +1,8 @@
+<?
+  //更新資料庫的會員密碼資料
+  $updateSQL = sprintf("UPDATE member SET password=%s WHERE email=%s",
+                       GetSQLValueString(md5($password), "text"),
+                       GetSQLValueString($_POST['email'], "text"));
+  mysql_select_db($database_conn_web, $conn_web);
+  $Result1 = mysql_query($updateSQL, $conn_web) or die(mysql_error());
+?>

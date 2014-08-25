@@ -1,0 +1,4 @@
+<?
+session_start(); //啟動session功能
+header("Cache-control:private");//解決session 引起的回上一頁表單被清空
+?>

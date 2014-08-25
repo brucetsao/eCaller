@@ -1,0 +1,28 @@
+<select name="year" id="year">
+             <option>¦~</option>
+               <script language="javascript" type="text/javascript">
+                   var watch=new Date();
+                   var thisYear=watch.getFullYear();
+				   for(y=1900;y<=thisYear;y++){
+                       document.write("<option value='"+y+"'>"+y+"</option>")
+	                  }
+	           </script>
+          </select>
+          
+          <select name="month" id="month">
+            <option>¤ë</option>
+               <script language="JavaScript" type="text/JavaScript">
+                   for(m=01;m<=12;m++){
+                       document.write("<option value='"+m+"'>"+m+"</option>")
+	                  }
+	           </script>
+           </select>
+ 
+           <select name="day" id="day">
+            <option>¤é</option>
+               <script language="JavaScript" type="text/JavaScript">
+                   for(d=01;d<=31;d++){
+                       document.write("<option value='"+d+"'>"+d+"</option>")
+	                  }
+	           </script>
+          </select>

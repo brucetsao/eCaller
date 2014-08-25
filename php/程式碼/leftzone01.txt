@@ -1,0 +1,7 @@
+//修改如下，解決會員登入區被include()載入引用的錯誤
+echo("<script language='javascript'>location.href='".$MM_redirectLoginSuccess."'</script>");
+
+
+
+//修改如下，解決會員登入區被include()載入引用的錯誤
+echo("<script language='javascript'>location.href='".$MM_redirectLoginFailed."'</script>");  

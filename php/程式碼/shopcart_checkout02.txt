@@ -1,0 +1,9 @@
+  //自訂變數$order_sid取得Session變數order_sid值
+  $order_sid=$_SESSION["order_sid"];
+  //自訂變數$order_group取得Session變數order_group值
+  $order_group=$_SESSION["order_group"];
+  /* 指定將orderlist資料表中order_sid與order_group欄位值符合上述session值的，將odlist_ok欄位值修改為y的SQL語法 */
+  $updateSQL = "UPDATE orderlist SET odlist_ok='y' WHERE order_sid='$order_sid' and order_group='$order_group'";
+  /* 執行更新動作 */
+  mysql_select_db($database_conn_web, $conn_web);
+  $Result = mysql_query($updateSQL, $conn_web) or die(mysql_error());

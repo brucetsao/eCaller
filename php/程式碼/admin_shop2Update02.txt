@@ -1,0 +1,12 @@
+/*php製作縮圖及預覽圖*/
+  //製作縮圖
+  $src  = "../images/shop/".$newPicname;        //圖檔來源位置
+  $newSrc = $src;                               //設定縮圖儲存位置及檔名
+  $whLimit = "400";                             //縮圖寬高限制尺寸
+  imgResize($src,$newSrc,$whLimit);             //利用自訂函數製作縮圖
+  //製作預覽圖
+  $src  = "../images/shop/".$newPicname;        //圖檔來源位置
+  $newSrc = "../images/shop/thum/".$newPicname; //設定預覽圖儲存位置及檔名
+  $whLimit = "57";                              //預覽圖寬高限制尺寸
+  imgResize($src,$newSrc,$whLimit);             //利用自訂函數製作預覽圖
+/*php製作縮圖及預覽圖結束*/

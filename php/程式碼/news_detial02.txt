@@ -1,0 +1,1 @@
+timthumb.php?src=images/news/<?php echo $row_web_news['news_pic']; ?>&w=150&zc=0

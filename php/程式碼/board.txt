@@ -1,0 +1,4 @@
+style="word-break:break-all;overflow:hidden;"
+
+
+style="table-layout:fixed"

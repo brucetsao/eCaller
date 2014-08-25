@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_RecMap" value="name:mapId;datatype:int,name:mapName;datatype:string,name:mapDesc;datatype:blob,name:mapLat;datatype:string,name:mapLng;datatype:string,name:mapTel;datatype:string,name:mapAddr;datatype:string,name:map_web;datatype:string,name:map_fb;datatype:string,name:map_blog;datatype:string" />
+	<infoitem key="UD_Recordset1" value="name:mapId;datatype:int,name:mapName;datatype:string,name:mapDesc;datatype:blob,name:mapLat;datatype:string,name:mapLng;datatype:string,name:mapTel;datatype:string,name:mapAddr;datatype:string,name:map_web;datatype:string,name:map_fb;datatype:string,name:map_blog;datatype:string" />
+</info>

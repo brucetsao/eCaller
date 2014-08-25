@@ -1,0 +1,4 @@
+/* 依據URL參數傳送的news_id更新news_count新聞瀏覽次數欄位計數*/
+$news_id=$_GET["news_id"];  //變數$news_id儲存URL參數傳遞過來的news_id編號
+$updateSQL = sprintf("UPDATE news SET news_count=news_count+1 WHERE news_id='$news_id'");//更新資料的SQL字串
+$Result = mysql_query($updateSQL, $conn_web) or die(mysql_error());//執行上述資料更新

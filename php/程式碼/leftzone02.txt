@@ -1,0 +1,4 @@
+<?php if(isset($_COOKIE['rmUsername']))echo $_COOKIE['rmUsername'];?>
+
+
+<?php if(isset($_COOKIE['rmPassword']))echo $_COOKIE['rmPassword'];?>

@@ -1,0 +1,4 @@
+SELECT p_id, p_name, p_price, p_pic, p_content
+FROM shop2
+WHERE ( p_name LIKE %colname% OR p_content LIKE %colname2% ) AND p_open = 'Y'
+ORDER BY p_id ASC

@@ -1,0 +1,4 @@
+SELECT shop1.shop_id,shop1.shop_name,shop2.p_id, shop2.p_name,shop2.p_price, shop2.p_open, shop2.p_pic
+FROM shop1 Left Join shop2 ON shop1.shop_id = shop2.shop_id
+WHERE shop2.shop_id = colname AND shop2.p_open = 'Y'
+ORDER BY shop2.p_id DESC

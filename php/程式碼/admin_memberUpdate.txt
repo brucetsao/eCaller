@@ -1,0 +1,7 @@
+//自訂變數$password記錄隱藏欄位傳送過來的已加密舊密碼
+$password=$_POST["password"];
+//如果新密碼passwordNew輸入欄位不是空的
+if($_POST["passwordNew"]!=""){
+	     //自訂變數$password就變更，改為記錄md5加密的passwordNew
+	     $password=md5($_POST["passwordNew"]);
+	}
